@@ -1,0 +1,38 @@
+.header h4 {
+    margin: 21px 0px 13px 0px;
+    font-weight: 400;
+    padding: 0 30px;
+    opacity: .8;
+    font-size: 2rem;
+}
+
+.bold:hover {
+    background-color: gainsboro;
+}
+
+.active {
+    background-color: gainsboro;
+}
+
+.bold a {
+    color: rgba(0,0,0,0.87);
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 32px;
+    text-decoration: none;
+}
+
+.out button {
+    color: rgba(0,0,0,0.87);
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 32px;
+    text-decoration: none;
+    width: 250px;
+}
