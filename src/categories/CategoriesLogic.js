@@ -42,12 +42,12 @@ export function CategoriesLogic() {
         return await this._data.requestGetPositions(id)
     }
 
-    this.postPosition = async (position) => {
-        await this._data.requestPostPosition(position)
+    this.postPosition = async (id, name, cost, categoryId) => {
+        await this._data.requestPostPosition({name, cost, category: categoryId})
     }
 
-    this.patchPosition = async (id, position) => {
-        await this._data.requestPatchPosition(id, position)
+    this.patchPosition = async (id, name, cost) => {
+        await this._data.requestPatchPosition(id, {name, cost})
     }
 
     this.removePosition = async (id) => {

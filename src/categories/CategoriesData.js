@@ -1,5 +1,5 @@
 import {DataApp} from "../DataApp";
-import {UtilRequest} from "../components/util";
+import {UtilRequest} from "../components/request/util";
 
 export function CategoriesData() {
     this._dataApp = new DataApp()

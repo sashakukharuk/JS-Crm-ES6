@@ -1,9 +1,8 @@
 import {CategoriesLogic} from "./CategoriesLogic";
-import {ModalForm} from "./modalForm";
 import '../style/position.css'
+import {ModalForm} from "../components/modal/modalForm";
 
 export function PositionPage() {
-    this._modal = new ModalForm()
     this._logic = new CategoriesLogic()
     this.start = (id) => {
         function _createPosition() {
@@ -45,25 +44,32 @@ export function PositionPage() {
                 this.positionPage.querySelector('[data-content-position]').innerHTML = position.map(this.toHTML).join('')
                 this.addPosBtn = document.getElementById('addPosit')
                 this.deletePosBtn = document.querySelectorAll('.deletePosition')
-                this.addPosBtn.addEventListener('click', () => this.addPosOpenModal(id))
+                this.addPosBtn.addEventListener('click', () => this.createPos(id))
                 this.deletePosBtn.forEach(d => d.addEventListener('click', this.deletePosition))
-                this.positionPage.addEventListener('click', (e) => this.createPosOpenModal(e, id, position))
+                this.positionPage.addEventListener('click', (e) => this.updatePos(e, id, position))
             }
         }
         this.render()
     }
 
-    this.addPosOpenModal = (id) => {
-        const position = null
-        this._modal.start(id, position, () => this.render())
+    this.openModal = (logicFunction, renderFunction, position, positionId, categoryId) => {
+        this._modal = new ModalForm(position, {
+            post: (name, cost) => logicFunction(positionId, name, cost, categoryId),
+            render: () => renderFunction()
+        })
+        this._modal.start()
     }
 
-    this.createPosOpenModal = (e, id, positions) => {
+    this.createPos = (id) => {
+        this.openModal(this._logic.postPosition, this.render, null, null, id)
+    }
+
+    this.updatePos = (e, id, positions) => {
         const modal = e.target.dataset.modal
         if (modal) {
             const idPos = e.target.dataset.id
             const position = positions.find(p => p._id === idPos)
-            this._modal.start(id, position, () => this.render())
+            this.openModal(this._logic.patchPosition, this.render, position, position._id, null)
         }
     }
 

@@ -1,4 +1,5 @@
-import {UtilRequest} from "../components/util";
+import {UtilRequest} from "../components/request/util";
+
 
 export function HistoryData() {
     this._request = new UtilRequest()

@@ -1,4 +1,4 @@
-import {UtilRequest} from "../components/util";
+import {UtilRequest} from "../components/request/util";
 
 export function OverviewData() {
     this._request = new UtilRequest()

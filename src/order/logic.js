@@ -39,8 +39,7 @@ export function LogicOrderPage() {
         await this.getOrders()
         const order = this._orders.find(order => order._id === id && order)
         this._data.deleteOrder(order)
-        const orders = await this._data.getOrdersLocal()
-        return orders.filter(order => order._id !== id)
+        return await this._data.getOrdersLocal()
     }
 
     this.clearLocalStorage = () => {

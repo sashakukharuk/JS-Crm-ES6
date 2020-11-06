@@ -1,12 +1,17 @@
-import {CategoriesLogic} from "./CategoriesLogic";
-import '../style/modalForm.css'
-import {InputControls} from "../components/inputControls/inputControls";
-export function ModalForm() {
-    this.name = new InputControls()
-    this.cost = new InputControls()
-    this._logic = new CategoriesLogic()
-    this.start = (id, position, callBack) => {
-        function _createModal(position) {
+import '../../style/modalForm.css'
+import {Input} from "../inputControls/inputControls";
+
+export class ModalForm {
+    constructor(position, methods) {
+        this.position = position
+        this.methods = methods
+        this.name = new Input('name', 'text','data-input',3,10,)
+        this.cost = new Input('cost', 'number', 'data-input')
+    }
+
+    start = () => {
+        const that = this
+        function _createModal() {
             const modal = document.createElement('div')
             modal.classList.add('sModal')
             modal.insertAdjacentHTML('afterbegin', `
@@ -15,10 +20,10 @@ export function ModalForm() {
                     <div class="content">
                         <h4>Add position</h4>
                         <div class="field" data-input>
-                            ${position ? `<input type='text' name='name'   value=${position.name}  placeholder='name' id="name"/>` : ''}
+                            ${that.position ? `<input type='text' name='name'   value=${that.position.name}  placeholder='name' id="name"/>` : ''}
                         </div>
                         <div class="field" data-input>
-                            ${position ? `<input type='number' name='cost' ${position ? `value=${position.cost}` : ''} id="cost" min="1"/>` : ''}
+                            ${that.position ? `<input type='number' name='cost' ${that.position ? `value=${that.position.cost}` : ''} id="cost" min="1"/>` : ''}
                         </div>
                     </div>
                     <div class="footer">
@@ -35,45 +40,44 @@ export function ModalForm() {
             return modal
         }
         this.removeChild()
-        this.modal = _createModal(position)
+        this.modal = _createModal()
         this.modal.classList.add('open')
-        if (!position) {
-            this.name.start('name', 'text','data-input',3,10,)
-            this.cost.start('cost', 'number', 'data-input')
+        if (!this.position) {
+            this.name.start()
+            this.cost.start()
         }
 
         this.cancelBtn = document.getElementById('cancel')
         this.saveBtn = document.getElementById('saveForm')
 
-        this.cancelBtn.addEventListener('click', this.closeModal)
-        this.saveBtn.addEventListener('click', () => this.confirmOrders(id, position, callBack))
+        this.cancelBtn.addEventListener('click', this.closeModal.bind(this))
+        this.saveBtn.addEventListener('click', this.confirmOrders.bind(this))
 
     }
 
-    this.removeChild = () => {
+    removeChild() {
         const parents = document.querySelector('.sModal')
         if (parents) {
             parents.parentNode.removeChild(parents)
         }
     }
 
-    this.closeModal = () => {
+    closeModal() {
         this.modal.classList.remove('open')
-        this.modal.parentNode.removeChild(this.modal)
+        this.removeChild()
     }
 
-    this.disabledConfirm = () => {
+    disabledConfirm() {
         this.saveBtn.classList.add('dis')
         this.saveBtn.disabled = true
     }
 
-    this.confirmOrders = async (id, position, callBack) => {
+    async confirmOrders() {
         this.disabledConfirm()
         const name = document.getElementById('name').value
         const cost = document.getElementById('cost').value
-        !position ? await this._logic.postPosition({name, cost, category: id})
-        : await this._logic.patchPosition(position._id, {name, cost})
-        callBack()
+        await this.methods.post(name, cost)
+        this.methods.render()
         this.closeModal()
     }
 }

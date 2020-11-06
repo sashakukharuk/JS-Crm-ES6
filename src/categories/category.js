@@ -1,9 +1,9 @@
 import {CategoriesLogic} from "./CategoriesLogic";
 import {PositionPage} from "./position";
 import '../style/categories.css'
-import {InputControls} from "../components/inputControls/inputControls";
+import {Input} from "../components/inputControls/inputControls";
+
 export function CategoryPage() {
-    this.name = new InputControls()
     this._logic = new CategoriesLogic()
     this._position = new PositionPage()
     this.start = (id, callBack) => {
@@ -50,7 +50,8 @@ export function CategoryPage() {
             } else {
                 _createCategory()
                 this.isCreate = true
-                this.name.start('name', 'text', 'data-category-input', 3, 10)
+                this.name = new Input('name', 'text', 'data-category-input', 3, 10)
+                this.name.start()
             }
 
             this.saveBtn = document.getElementById('save')

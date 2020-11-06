@@ -1,9 +1,8 @@
-import {Modal} from "./modal";
 import {LogicOrderPage} from "./logic";
 import '../style/order.css'
+import {Modal} from "../components/modal/modal";
 export function UiOrderPage() {
     this.completeBtn = null
-    this._modal = new Modal()
     this._logic = new LogicOrderPage()
     this.start = function (id) {
         function pageOrder (orders) {
@@ -63,15 +62,16 @@ export function UiOrderPage() {
 
     this.openModal = async () => {
         const orders = await this._logic.getAddedOrders()
-        this._modal.start({
+        this._modal = new Modal('orderModal',{
                 orders: {list: orders},
                 closeBtn: false
             },
             {
-                post: this._logic.postOrders,
+                post: await this._logic.postOrders,
                 clear: this._logic.clearOrders,
                 deleteOrder: async (id) => await this._logic.deleteOrder(id)
-            },)
+            })
+        this._modal.start()
     }
 
     this.addOrder = (event) => {

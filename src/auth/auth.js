@@ -1,6 +1,7 @@
 import {LogicAuth} from "./logic";
 import '../style/auth.css'
 import {AuthForm} from "./authForm";
+import {Router} from "../components/router/router";
 
 export function AuthPage() {
     this._logic = new LogicAuth()
@@ -40,27 +41,13 @@ export function AuthPage() {
         this.myFirstRoute = [
             {
                 path: '?login',
-                render: () => this.renderAuth({
-                    name: 'Login in',
-                    btn: 'Login'
-                }, async (auth) => {
-                    await this._logic.postLogin(auth)
-                    window.history.pushState({}, 'name', "/CRM.html")
-                    this.removeChild()
-                    this.header.parentNode.removeChild(this.header)
-                    callback()
-                })
+                name: 'Login',
+                render: () => this.renderLogin(callback)
             },
             {
                 path: '?register',
-                render: () => this.renderAuth({
-                    name: 'Register',
-                    btn: 'Register'
-                }, async (auth) => {
-                    await this._logic.postRegister(auth)
-                    window.history.pushState({}, 'name', "?login")
-                    this.render()
-                })
+                name: 'Register',
+                render: this.renderRegister
             },
         ]
         const str = window.location.href.replace('http://localhost:8080/CRM.html', '')
@@ -86,9 +73,34 @@ export function AuthPage() {
         }
     }
 
+    this.renderLogin = () => {
+        this.removeChild()
+        this.renderAuth({
+            name: 'Login in',
+            btn: 'Login'
+        }, async (auth) => {
+            await this._logic.postLogin(auth)
+            window.history.pushState({}, 'name', "/CRM.html")
+            this.removeChild()
+            this.header.parentNode.removeChild(this.header)
+        })
+    }
+
+    this.renderRegister = () => {
+        this.removeChild()
+        this.renderAuth({
+            name: 'Register',
+            btn: 'Register'
+        }, async (auth) => {
+            await this._logic.postRegister(auth)
+            window.history.pushState({}, 'name', "?login")
+            this.render()
+        })
+    }
+
     this.renderAuth = (options, callback) => {
         this.removeChild()
-        const auth = new AuthForm()
-        auth.start(options, callback)
+        const auth = new AuthForm(options, callback)
+        auth.start()
     }
 }

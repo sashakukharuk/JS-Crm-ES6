@@ -1,4 +1,4 @@
-import {DataApp} from "../DataApp";
+import {DataApp} from "../../DataApp";
 
 export function UtilRequest() {
     this._dataApp = new DataApp()

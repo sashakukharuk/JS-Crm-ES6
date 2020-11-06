@@ -1,4 +1,4 @@
-import {UtilRequest} from "../components/util";
+import {UtilRequest} from "../components/request/util";
 
 export function DataOrderPage() {
     this._request = new UtilRequest()
@@ -53,6 +53,3 @@ export function DataOrderPage() {
         localStorage.clear()
     }
 }
-
-
-

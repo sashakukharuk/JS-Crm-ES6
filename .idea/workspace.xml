@@ -1,7 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="08800ce8-044b-4f67-8270-21d670edc16d" name="Default Changelist" comment="" />
+    <list default="true" id="08800ce8-044b-4f67-8270-21d670edc16d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/auth/login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/auth/register.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/inputControls/listener-validation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/inputControls/validation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/modal/modal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/router/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/analytics/AnalyticsData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/analytics/AnalyticsData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auth/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auth/authForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/authForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auth/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/categories/CategoriesData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/categories/CategoriesData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/categories/CategoriesLogic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/categories/CategoriesLogic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/categories/category.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/categories/category.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/categories/modalForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/modalForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/categories/position.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/categories/position.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/computePrice/computePrice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/computePrice/computePrice.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/inputControls/inputControls.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/inputControls/inputControls.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/request/util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/history/HistoryData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/history/HistoryData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/history/history.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/history/history.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/order/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/order/data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/order/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/order/logic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/order/logic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/order/modal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/order/ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/order/ui.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/overview/OverviewData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/overview/OverviewData.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,7 +63,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1jVdlupXx14l0mIlxK4dgsqJ7PZ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -26,7 +74,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/style" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/auth" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -39,13 +87,17 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\999\IT\react\project\tree-project\src\components\request" />
+      <recent name="D:\999\IT\react\project\tree-project\src\components\modal" />
+      <recent name="D:\999\IT\react\project\tree-project\dist" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\999\IT\react\project\tree-project\src\auth" />
+      <recent name="D:\999\IT\react\project\tree-project\src\components\inputControls" />
       <recent name="D:\999\IT\react\project\tree-project\src\style" />
       <recent name="D:\999\IT\react\project\tree-project\src" />
       <recent name="D:\999\IT\react\project\tree-project" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\999\IT\react\project\tree-project\dist" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -70,6 +122,10 @@
       <workItem from="1604410242778" duration="2353000" />
       <workItem from="1604477976030" duration="253000" />
       <workItem from="1604487939339" duration="8791000" />
+      <workItem from="1604502263321" duration="838000" />
+      <workItem from="1604506575011" duration="55000" />
+      <workItem from="1604583200198" duration="54000" />
+      <workItem from="1604669777633" duration="21320000" />
     </task>
     <servers />
   </component>
@@ -94,10 +150,10 @@
     </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1604478223993">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1604583253135">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604478223993" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604583253135" />
     <state x="594" y="220" key="SettingsEditor" timestamp="1603989337085">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

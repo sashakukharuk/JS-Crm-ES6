@@ -1,41 +1,46 @@
-import {InputControls} from "../components/inputControls/inputControls";
+import {Input} from "../components/inputControls/inputControls";
 
-export function AuthForm() {
-    this.start = (options, callback) => {
-        this.email = new InputControls()
-        this.password = new InputControls()
+export class AuthForm {
+    constructor(options, callback) {
+        this.options = options
+        this.callback = callback
+        this.email = new Input('email', 'text', 'data-input')
+        this.password = new Input('password', 'password', 'data-auth-input', 6)
+    }
+    start() {
+        const that = this
         function _createForm() {
             const authForm = document.createElement('div')
             authForm.classList.add('sAuth')
             authForm.insertAdjacentHTML('afterbegin', `
-                <div class="block">
+                <form class="block">
                     <div class="card">
                         <div class="content">
-                            <span class="cardTitle">${options.name}</span>
+                            <span class="cardTitle">${that.options.name}</span>
                             <div class="field" data-input>
                             </div>
                             <div class="field" data-auth-input>
                             </div>
                         </div>
                         <div class="action">
-                            <button id="btnForm" class="btn">
-                                ${options.btn}
+                            <button type="submit" id="btnForm" class="btn">
+                                ${that.options.btn}
                             </button>
                         </div>
                     </div>
-                </div>
+                </form>
                 `)
             document.body.appendChild(authForm)
             return authForm
         }
         _createForm()
-        this.email.start('email', 'text', 'data-auth-input')
-        this.password.start('password', 'password', 'data-auth-input', 6)
+        this.email.start()
+        this.password.start()
         this.btnForm = document.getElementById('btnForm')
-        this.btnForm.addEventListener('click', () => this.loginRegister(callback), {once: true})
+        this.btnForm.addEventListener('click', this.loginRegister.bind(this))
     }
 
-    this.loginRegister = (callback) => {
+    loginRegister() {
         this.btnForm.classList.add('active')
         const email = document.getElementById('email').value
         const password = document.getElementById('password').value
@@ -43,6 +48,6 @@ export function AuthForm() {
             email: email,
             password: password
         }
-        callback(auth)
+        this.callback(auth)
     }
 }

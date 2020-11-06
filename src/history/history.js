@@ -1,14 +1,13 @@
 import {HistoryLogic} from "./HistoryLogic";
-import {Modal} from "../order/modal";
 import {Filter} from './filter'
 import '../style/history.css'
 import {Compute} from "../components/computePrice/computePrice";
+import {Modal} from "../components/modal/modal";
 
 export function HistoryPage() {
-    this._compute = new Compute()
+    // this._compute = new Compute()
     this.orders = []
     this._logic = new HistoryLogic()
-    this._modal = new Modal()
     this._filter = new Filter()
     this._isFilter = false
     this.start = () => {
@@ -50,7 +49,7 @@ export function HistoryPage() {
                 </td>
                 <td>${moment(orders.date).format("YYYY-MM-DD")}</td>
                 <td>${moment(orders.date).format("HH:mm")}</td>
-                <td>${that.computePrice(orders)} $.</td>
+                <td>${that.computePrice(orders.list)} $.</td>
                 <td>
                     <button class="btn" data-id=${orders._id}>
                        |_/
@@ -76,7 +75,8 @@ export function HistoryPage() {
     }
 
     this.computePrice = (orders) => {
-        return this._compute.result(orders)
+        this.compute = new Compute(orders)
+        return this.compute.result()
     }
 
     this.openFilter = () => {
@@ -99,10 +99,11 @@ export function HistoryPage() {
     this.openModal = (e) => {
         const id = e.target.dataset.id
         const orders = this.orders.find(o => o._id === id)
-        this._modal.start({
+        this._modal = new Modal('historyModal',{
             orders: orders,
             closeBtn: true
         })
+        this._modal.start()
     }
 }
 
