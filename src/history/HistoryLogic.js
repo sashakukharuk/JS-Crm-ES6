@@ -1,18 +1,12 @@
 import {HistoryData} from "./HistoryData";
 
-export function HistoryLogic() {
-    this._data = new HistoryData()
-
-    this.showFilter = () => {
-        return this._data.getFilter()
+export class HistoryLogic extends HistoryData {
+    constructor(filter) {
+        super(filter.offset, filter.limit, filter.order, filter.start, filter.end)
+        this.filter = filter
     }
 
-    this.getOrders = async (filter, STEP) => {
-        filter && this.dispatchFilter(filter)
-        return await this._data.requestGetOrders(filter, STEP)
-    }
-
-    this.dispatchFilter = (filter) => {
-        this._data.setFilter(filter)
+    async getOrders() {
+        return await this.requestGetOrders()
     }
 }

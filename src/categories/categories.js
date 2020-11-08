@@ -2,12 +2,15 @@ import {CategoriesLogic} from "./CategoriesLogic";
 import {CategoryPage} from "./category";
 import '../style/categories.css'
 
-export function CategoriesPage() {
-    this.isTitle = false
-    this.isNew = true
-    this._logic = new CategoriesLogic()
-    this._category = new CategoryPage()
-    this.start = () => {
+export class CategoriesPage extends CategoriesLogic {
+    constructor() {
+        super()
+        this.isTitle = false
+        this.isNew = true
+        this._category = new CategoryPage()
+    }
+
+    start() {
         const that = this
         function _categoriesPage() {
             const page = document.createElement('div')
@@ -38,41 +41,41 @@ export function CategoriesPage() {
             this.categories = _categoriesPage()
             if (this.isTitle) {
                 this.linkCategories = document.getElementById('linkCategories')
-                this.linkCategories.addEventListener('click', this.backCategories)
+                this.linkCategories.addEventListener('click', this.backCategories.bind(this))
                 if (!that.isNew) {
                     this.deleteCategoryBtn = document.getElementById('delete')
-                    this.deleteCategoryBtn.addEventListener('click', this.deleteCategory)
+                    this.deleteCategoryBtn.addEventListener('click', this.deleteCategory.bind(this))
                 }
             }
         }
         this.render()
         this.rerender = async () => {
-            const categories = await this._logic.getCategories()
+            const categories = await this.getCategories()
             this.categories.querySelector('[data-content-collection]').innerHTML = categories.map(this.toHTML).join('')
             this.linkCategory = document.querySelectorAll('[data-id]')
             this.addCategoryBtn = document.getElementById('add')
-            this.linkCategory.forEach(c => c.addEventListener('click', this.openCategory))
-            this.addCategoryBtn.addEventListener('click', this.addCategory)
+            this.linkCategory.forEach(c => c.addEventListener('click', this.openCategory.bind(this)))
+            this.addCategoryBtn.addEventListener('click', this.addCategory.bind(this))
 
         }
         this.rerender()
     }
 
-    this.removeChild = () => {
+    removeChild() {
         const parents = document.querySelector('.content')
         if (parents.firstChild) {
             parents.removeChild(parents.firstChild)
         }
     }
 
-    this.utilRender = () => {
+    utilRender() {
         this.removeChild()
         this.isNew = false
         this.render()
     }
 
 
-    this.addCategory = () => {
+    addCategory() {
         this.removeChild()
         this.isTitle = true
         this.isNew = true
@@ -83,7 +86,7 @@ export function CategoriesPage() {
         })
     }
 
-    this.openCategory = (e) => {
+    openCategory(e) {
         const id = e.target.dataset.id
         this.removeChild()
         window.history.pushState({}, 'name', `?categories?${id}`)
@@ -95,7 +98,7 @@ export function CategoriesPage() {
         })
     }
 
-    this.backCategories = () => {
+    backCategories() {
         this.removeChild()
         window.history.pushState({}, 'name', `?categories`)
         this.isTitle = false
@@ -104,14 +107,14 @@ export function CategoriesPage() {
         this.rerender()
     }
 
-    this.disabledDelete = () => {
+    disabledDelete() {
         this.deleteCategoryBtn.classList.add('active')
         this.deleteCategoryBtn.disabled = true
     }
 
-    this.deleteCategory = async () => {
+    async deleteCategory() {
         this.disabledDelete()
-        await this._logic.removeCategory()
+        await this.removeCategory()
         this.removeChild()
         this.isTitle = true
         this.isNew = true

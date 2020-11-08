@@ -1,23 +1,26 @@
 import {DataApp} from "../DataApp";
 import {UtilRequest} from "../components/request/util";
 
-export function CategoriesData() {
-    this._dataApp = new DataApp()
-    this._request = new UtilRequest()
+export class CategoriesData {
+    constructor() {
+        this._dataApp = new DataApp()
+        this._request = new UtilRequest()
+    }
 
-    this.requestGetCategories = async () => {
+
+    async requestGetCategories() {
         return await this._request.start('category', 'GET')
     }
 
-    this.requestGetCategory = async (id) => {
+    async requestGetCategory(id) {
         return await this._request.start(`category/${id}`, 'GET')
     }
 
-    this.requestPostCategory = async (fd) => {
+    async requestPostCategory(fd) {
         const token = await this._dataApp.requestGetToken()
         return await fetch(`http://localhost:5000/api/category`, {
             method: 'POST',
-            body: fd,
+            body: JSON.stringify(fd),
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: token
@@ -25,11 +28,11 @@ export function CategoriesData() {
         }).then(res => res.json())
     }
 
-    this.requestPatchCategory = async (id, fd) => {
+    async requestPatchCategory(id, fd) {
         const token = await this._dataApp.requestGetToken()
-        return await fetch(`http://localhost:5000/api/category`, {
+        return await fetch(`http://localhost:5000/api/category/${id}`, {
             method: 'PATCH',
-            body: fd,
+            body: JSON.stringify(fd),
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: token
@@ -37,24 +40,24 @@ export function CategoriesData() {
         }).then(res => res.json())
     }
 
-    this.requestRemoveCategory = async () => {
+    async requestRemoveCategory() {
         const id = window.location.href.replace('http://localhost:8080/CRM.html?categories?', '')
         return await this._request.start(`category/${id}`, 'DELETE')
     }
 
-    this.requestGetPositions = async (id) => {
+    async requestGetPositions(id) {
         return await this._request.start(`position/${id}`, 'GET')
     }
 
-    this.requestPostPosition = async (position) => {
+    async requestPostPosition(position) {
         return await this._request.start(`position`, 'POST', JSON.stringify(position))
     }
 
-    this.requestPatchPosition = async (id, position) => {
+    async requestPatchPosition(id, position) {
         return await this._request.start(`position/${id}`, 'PATCH', JSON.stringify(position))
     }
 
-    this.requestRemovePosition = async (id) => {
+    async requestRemovePosition(id) {
         return await this._request.start(`position/${id}`, 'DELETE')
     }
 }

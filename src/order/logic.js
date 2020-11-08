@@ -1,48 +1,41 @@
 import {DataOrderPage} from "./data";
 
-export function LogicOrderPage() {
-    this._orders = []
-    this._data = new DataOrderPage()
-
-    this.getOrders = async (id) => {
-        if (this._orders.length === 0) {
-            this._orders = await this._data.getOrders(id)
-            return this._orders
-        } else {
-            return this._orders
-        }
+export class LogicOrderPage extends DataOrderPage {
+    constructor() {
+        super()
+        this.orders = null
     }
 
-    this.getAddedOrders = async () => {
-        return await this._data.getOrdersLocal()
+    async getOrders(id) {
+        return this.orders = await this.requestGetOrders(id)
     }
 
-    this.setOrder = async (order) => {
-        this._data.setOrderAC(order)
+    async getAddedOrdersLocal() {
+        return await this.getOrdersLocal()
     }
 
-    this.postOrders = async () => {
-        const list = await this._data.getOrdersLocal()
-        const data = {
-            list: list
-        }
-        this._data.requestPostOrders(data)
+    setOrder(order) {
+        this.setOrderAC(order)
+    }
+
+    async postOrders() {
+        const list = await this.getOrdersLocal()
+        await this.requestPostOrders({list: list})
         this.clearLocalStorage()
     }
 
-    this.clearOrders = () => {
-        this._data.deleteDataOrders()
-        this._orders = []
+    clearOrders() {
+        this.deleteDataOrders()
     }
 
-    this.deleteOrder = async (id) => {
+    async deleteOrder(id) {
         await this.getOrders()
-        const order = this._orders.find(order => order._id === id && order)
-        this._data.deleteOrder(order)
-        return await this._data.getOrdersLocal()
+        const order = this.orders.find(order => order._id === id && order)
+        await this.deleteOrderLocal(order)
+        return await this.getOrdersLocal()
     }
 
-    this.clearLocalStorage = () => {
-        this._data.deleteAllOrders()
+    clearLocalStorage() {
+        this.deleteAllOrders()
     }
 }

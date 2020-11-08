@@ -21,6 +21,35 @@
   <component name="ChangeListManager">
     <list default="true" id="08800ce8-044b-4f67-8270-21d670edc16d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LogicApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/LogicApp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/analytics/AnalyticsData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/analytics/AnalyticsData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/analytics/AnalyticsLogic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/analytics/AnalyticsLogic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/analytics/analytics.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/analytics/analytics.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auth/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auth/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auth/logic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/logic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auth/login.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auth/register.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/categories/CategoriesData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/categories/CategoriesData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/categories/CategoriesLogic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/categories/CategoriesLogic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/categories/categories.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/categories/categories.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/categories/category.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/categories/category.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/categories/position.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/categories/position.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modal/modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/modal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/router/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/router/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/history/HistoryData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/history/HistoryData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/history/HistoryLogic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/history/HistoryLogic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/history/filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/history/filter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/history/history.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/history/history.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/order/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/order/data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/order/logic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/order/logic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/order/orderCategories.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/order/orderCategories.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/order/ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/order/ui.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/overview/OverviewData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/overview/OverviewData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/overview/OverviewLogic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/overview/OverviewLogic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/overview/overview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/overview/overview.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/overview.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/overview.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +127,9 @@
       <workItem from="1604506575011" duration="55000" />
       <workItem from="1604583200198" duration="54000" />
       <workItem from="1604669777633" duration="21972000" />
+      <workItem from="1604757943866" duration="18679000" />
+      <workItem from="1604832049056" duration="341000" />
+      <workItem from="1604832718798" duration="12117000" />
     </task>
     <servers />
   </component>

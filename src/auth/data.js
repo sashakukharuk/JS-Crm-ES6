@@ -1,14 +1,17 @@
 import {UtilRequest} from "../components/request/util";
 
-export function DataAuth() {
-    this._request = new UtilRequest()
+export class DataAuth {
+    constructor() {
+        this._request = new UtilRequest()
+    }
 
-    this.requestPostLogin = async (auth) => {
+
+    async requestPostLogin(auth) {
         const token = await this._request.startAuth('auth/login', 'POST', JSON.stringify(auth))
         localStorage.setItem('token', JSON.stringify(token))
     }
 
-    this.requestPostRegister = async (auth) => {
+    async requestPostRegister(auth) {
         await this._request.startAuth('auth/register', 'POST', JSON.stringify(auth))
     }
 }

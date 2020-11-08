@@ -1,12 +1,13 @@
 import {AnalyticsData} from "./AnalyticsData";
 
-export function AnalyticsLogic() {
-    this._data = new AnalyticsData()
-    this._analytics = null
-
-    this.getAnalytics = async () => {
+export class AnalyticsLogic extends AnalyticsData {
+    constructor() {
+        super()
+        this._analytics = null
+    }
+    async getAnalytics() {
         if (!this._analytics) {
-            this._analytics = await this._data.getAnalytics()
+            this._analytics = await this.requestGetAnalytics()
             return this._analytics
         } else {
             return this._analytics

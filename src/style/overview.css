@@ -15,15 +15,14 @@
     display: flex;
 }
 
-.block-overview .block {
-    display: inline-block;
-    background-color: aqua;
+.block-overview .block-gain {
+    background-color: aquamarine;
     text-align: left;
     padding: 20px;
     margin-right: 20px;
 }
 
-.block-overview .block span {
+.block-overview .block-gain span {
     color: black;
     font-size: 24px;
     font-weight: 300;
@@ -32,13 +31,40 @@
     margin-bottom: 8px;
 }
 
-.block-overview .block h4 {
+.block-overview .block-gain h4 {
     font-weight: 400;
     font-size: 2.92rem;
     line-height: 110%;
     margin: 1.9466666667rem 0 1.168rem 0;
 }
 
-.block-overview .block p {
+.block-overview .block-gain p {
+    margin: 0;
+}
+
+.block-overview .block-order {
+    background-color: bisque;
+    text-align: left;
+    padding: 20px;
+    margin-right: 20px;
+}
+
+.block-overview .block-order span {
+    color: black;
+    font-size: 24px;
+    font-weight: 300;
+    display: block;
+    line-height: 32px;
+    margin-bottom: 8px;
+}
+
+.block-overview .block-order h4 {
+    font-weight: 400;
+    font-size: 2.92rem;
+    line-height: 110%;
+    margin: 1.9466666667rem 0 1.168rem 0;
+}
+
+.block-overview .block-order p {
     margin: 0;
 }

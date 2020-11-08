@@ -1,11 +1,12 @@
-import {LogicAuth} from "./logic";
 import '../style/auth.css'
 import {AuthForm} from "./authForm";
-import {Router} from "../components/router/router";
+import {LogicAuth} from "./logic";
 
-export function AuthPage() {
-    this._logic = new LogicAuth()
-    this.start = (callback) => {
+export class AuthPage extends LogicAuth {
+    constructor() {
+        super()
+    }
+    start() {
         function _createAuthForm() {
         const authForm = document.createElement('div')
         authForm.classList.add('sHeader')
@@ -27,27 +28,22 @@ export function AuthPage() {
         }
 
         this.header = _createAuthForm()
-
-        this.render = () => {
-            this.myRouter(callback)
-
-            this.activeRoutes = document.querySelectorAll('[data-route]')
-            this.activeRoutes.forEach(route => route.addEventListener('click', (e) => this.renderOfRouter(e)))
-        }
-        this.render()
+        this.myRouter()
+        this.activeRoutes = document.querySelectorAll('[data-route]')
+        this.activeRoutes.forEach(route => route.addEventListener('click', (e) => this.renderOfRouter(e)))
     }
 
-    this.myRouter = (callback) => {
+    myRouter() {
         this.myFirstRoute = [
             {
                 path: '?login',
                 name: 'Login',
-                render: () => this.renderLogin(callback)
+                render: () => this.renderLogin()
             },
             {
                 path: '?register',
                 name: 'Register',
-                render: this.renderRegister
+                render: () => this.renderRegister()
             },
         ]
         const str = window.location.href.replace('http://localhost:8080/CRM.html', '')
@@ -58,7 +54,7 @@ export function AuthPage() {
         })
     }
 
-    this.renderOfRouter = (e) => {
+    renderOfRouter(e) {
         const route = e.target.dataset.route
         if (route) {
             window.history.pushState({}, 'name', route)
@@ -66,39 +62,38 @@ export function AuthPage() {
         }
     }
 
-    this.removeChild = () => {
+    removeChild() {
         const form = document.querySelector('.sAuth')
         if (form) {
             form.parentNode.removeChild(form)
         }
     }
 
-    this.renderLogin = () => {
-        this.removeChild()
+    renderLogin() {
         this.renderAuth({
             name: 'Login in',
             btn: 'Login'
         }, async (auth) => {
-            await this._logic.postLogin(auth)
+            await this.postLogin(auth)
             window.history.pushState({}, 'name', "/CRM.html")
             this.removeChild()
             this.header.parentNode.removeChild(this.header)
+
         })
     }
 
-    this.renderRegister = () => {
-        this.removeChild()
+    renderRegister() {
         this.renderAuth({
             name: 'Register',
             btn: 'Register'
-        }, async (auth) => {
-            await this._logic.postRegister(auth)
-            window.history.pushState({}, 'name', "?login")
-            this.render()
+        }, (auth) => {
+            this.postRegister(auth),
+            window.history.pushState({}, 'name', "?login"),
+            this.myRouter()
         })
     }
 
-    this.renderAuth = (options, callback) => {
+    renderAuth(options, callback) {
         this.removeChild()
         const auth = new AuthForm(options, callback)
         auth.start()

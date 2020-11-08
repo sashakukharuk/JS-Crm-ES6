@@ -1,9 +1,12 @@
 import {UtilRequest} from "../components/request/util";
 
-export function AnalyticsData() {
-    this._request = new UtilRequest()
+export class AnalyticsData {
+    constructor() {
+        this._request = new UtilRequest()
+    }
 
-    this.getAnalytics = async () => {
+
+    async requestGetAnalytics() {
         return await this._request.start('analytics/analytics', 'GET')
     }
 }

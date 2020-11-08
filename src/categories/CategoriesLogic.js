@@ -1,19 +1,19 @@
 import {CategoriesData} from "./CategoriesData";
 
-export function CategoriesLogic() {
-    this._categories = []
-    this._category = {}
-    this._data = new CategoriesData()
-    this.getCategories = async () => {
-        this._categories = await this._data.requestGetCategories()
-        return this._categories
+export class CategoriesLogic extends CategoriesData {
+    constructor() {
+        super()
     }
 
-    this.getCategory = async (id) => {
-        return await this._data.requestGetCategory(id)
+    async getCategories() {
+        return await this.requestGetCategories()
     }
 
-    this.objectCategory = (category) => {
+    async getCategory(id) {
+        return await this.requestGetCategory(id)
+    }
+
+    async objectCategory(category) {
         const fd = new FormData()
         if (category.file) {
             fd.append('image', category.file, category.file.name)
@@ -22,35 +22,34 @@ export function CategoriesLogic() {
         return fd
     }
 
-    this.postCategory = async (category) => {
-        const fd = this.objectCategory(category)
-        this._category =  await this._data.requestPostCategory(fd)
-        return this._category
+    async postCategory(category) {
+        // const fd = this.objectCategory(category)
+        return await this.requestPostCategory(category)
     }
 
-    this.patchCategory = async (id, category) => {
-        const fd = this.objectCategory(category)
-        this._category =  await this._data.requestPatchCategory(id, fd)
-        return this._category
+    async patchCategory(id, category) {
+        // const fd = this.objectCategory(category)
+        return  await this.requestPatchCategory(id, category)
     }
 
-    this.removeCategory = async () => {
-        await this._data.requestRemoveCategory()
+    async removeCategory() {
+        await this.requestRemoveCategory()
     }
 
-    this.getPositions = async (id) => {
-        return await this._data.requestGetPositions(id)
+    async getPositions(id) {
+        return await this.requestGetPositions(id)
     }
 
-    this.postPosition = async (id, name, cost, categoryId) => {
-        await this._data.requestPostPosition({name, cost, category: categoryId})
+    async postPosition(id, name, cost, categoryId) {
+        debugger
+        await this.requestPostPosition({name, cost, category: categoryId})
     }
 
-    this.patchPosition = async (id, name, cost) => {
-        await this._data.requestPatchPosition(id, {name, cost})
+    async patchPosition(id, name, cost) {
+        await this.requestPatchPosition(id, {name, cost})
     }
 
-    this.removePosition = async (id) => {
-        await this._data.requestRemovePosition(id)
+    async removePosition(id) {
+        await this.requestRemovePosition(id)
     }
 }

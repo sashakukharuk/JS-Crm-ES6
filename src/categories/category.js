@@ -3,10 +3,13 @@ import {PositionPage} from "./position";
 import '../style/categories.css'
 import {Input} from "../components/inputControls/inputControls";
 
-export function CategoryPage() {
-    this._logic = new CategoriesLogic()
-    this._position = new PositionPage()
-    this.start = (id, callBack) => {
+export class CategoryPage extends CategoriesLogic {
+    constructor() {
+        super()
+        this._position = new PositionPage()
+    }
+
+    start(id, callBack) {
         function _createCategory(options) {
             const category = document.createElement('div')
             category.classList.add('category')
@@ -14,7 +17,7 @@ export function CategoryPage() {
             <div class="form">
                 <div class="content un-content">
                     <div class="field" data-category-input>
-                        ${options ? `<input type='text' name='name'  placeholder='name' value=${options.name} id="nameCategory"/>` : ''}
+                        ${options ? `<input type='text' name='name'  placeholder='name' value=${options.name} id="name"/>` : ''}
                     </div>
                     <div class="fieldPhoto">
                         <input type='file' name='imageSrc' id="file"/>
@@ -38,7 +41,7 @@ export function CategoryPage() {
 
         this.render = async (newCategory) => {
             if (id) {
-                const category = await this._logic.getCategory(id)
+                const category = await this.getCategory(id)
                 _createCategory(category)
                 this._position.start(id)
                 this.isCreate = false
@@ -55,36 +58,37 @@ export function CategoryPage() {
             }
 
             this.saveBtn = document.getElementById('save')
+
             this.isCreate ? this.saveBtn.addEventListener('click', () => this.addCategory(callBack))
             : this.saveBtn.addEventListener('click', (e) => this.updateCategory(e, callBack))
         }
         this.render()
     }
 
-    this.disabled = () => {
+    disabled() {
         this.saveBtn.classList.add('active')
         this.saveBtn.disabled = true
     }
 
-    this.objectCategory = () => {
+    objectCategory() {
         const name = document.getElementById('name').value
         const file = document.getElementById('file').files[0]
         return {name, file}
     }
 
-    this.addCategory = async (callBack) => {
+    async addCategory(callBack) {
         const category = this.objectCategory()
         this.disabled()
-        const newCategory = await this._logic.postCategory(category)
+        const newCategory = await this.postCategory(category)
         callBack()
         this.render(newCategory)
     }
 
-    this.updateCategory = async (e, callBack) => {
+    async updateCategory(e, callBack) {
         const id = e.target.dataset.id
         const category = this.objectCategory()
         this.disabled()
-        const newCategory = await this._logic.patchCategory(id, category)
+        const newCategory = await this.patchCategory(id, category)
         callBack()
         this.render(newCategory)
     }

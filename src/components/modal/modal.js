@@ -1,7 +1,6 @@
 import '../../style/modal.css'
 import {Compute} from "../computePrice/computePrice";
 
-
 export class Modal {
     constructor(name, options, methods) {
         this.name = name
@@ -11,7 +10,6 @@ export class Modal {
 
     start() {
         const that = this
-
         function _createModal() {
             const modal = document.createElement('div')
             modal.classList.add('sModal')
@@ -33,7 +31,7 @@ export class Modal {
                                 </tbody>
                             </table>
                             <div class="orderSummary">
-                                <p>Общая стоимость <strong>${that.options ? that.computePrice(that.options.orders.list) : 0}$.</strong></p>
+                                <p>Общая стоимость <strong data-price></strong></p>
                             </div>
                         </div>
                         ${that.options.closeBtn ? `<div class="footer"><button class="btnLeft" data-close="true" id="cancel">Close</button></div>`
@@ -74,6 +72,7 @@ export class Modal {
 
     render() {
         this.modal.querySelector('[data-content]').innerHTML = this.options.orders.list.map(o => this.toHTML(o)).join('')
+        this.modal.querySelector('[data-price]').innerHTML = `<strong>${this.options.orders.list ? this.computePrice(this.options.orders.list) : 0}$.</strong>`
     }
 
     computePrice = (orders) => {

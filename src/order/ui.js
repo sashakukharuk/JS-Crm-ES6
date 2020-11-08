@@ -1,10 +1,13 @@
 import {LogicOrderPage} from "./logic";
 import '../style/order.css'
 import {Modal} from "../components/modal/modal";
-export function UiOrderPage() {
-    this.completeBtn = null
-    this._logic = new LogicOrderPage()
-    this.start = function (id) {
+export class UiOrderPage extends LogicOrderPage {
+    constructor() {
+        super()
+        this.completeBtn = null
+    }
+
+    start(id) {
         function pageOrder (orders) {
             const orderPage = document.createElement('div')
             orderPage.classList.add('order')
@@ -38,43 +41,46 @@ export function UiOrderPage() {
         }
 
         this.render = async () => {
-            this._logic.clearOrders()
-            const orders = await this._logic.getOrders(id)
+            this.clearOrders()
+            const orders = await this.getOrders(id)
             this.order = pageOrder(orders)
 
             this.completeBtn = document.getElementById('completeBtn')
-
-            this.completeBtn.addEventListener('click', this.openModal)
-            this.order.addEventListener('click', this.addOrder)
+            this.completeBtn.addEventListener('click', this.openModal.bind(this))
+            this.order.addEventListener('click', this.addOrder.bind(this))
             this.getAddedOrders()
         }
 
         this.render()
     }
 
-    this.getAddedOrders = async () => {
-        const orders = await this._logic.getAddedOrders()
+    async getAddedOrders() {
+        const orders = await this.getAddedOrdersLocal()
         if (orders.length === 0) {
             this.completeBtn.classList.add('active')
             this.completeBtn.disabled = true
         }
     }
 
-    this.openModal = async () => {
-        const orders = await this._logic.getAddedOrders()
+    async openModal() {
+        const orders = await this.getAddedOrdersLocal()
         this._modal = new Modal('orderModal',{
                 orders: {list: orders},
                 closeBtn: false
             },
             {
-                post: await this._logic.postOrders,
-                clear: this._logic.clearOrders,
-                deleteOrder: async (id) => await this._logic.deleteOrder(id)
+                post: async () => {await this.postOrders(); await this.getAddedOrders()},
+                clear: () => this.clearOrders(),
+                deleteOrder: async (id) => {
+                    const orders = await this.deleteOrder(id)
+                    await this.getAddedOrders()
+                    return orders
+                }
             })
         this._modal.start()
     }
 
-    this.addOrder = (event) => {
+    addOrder(event) {
         const id = event.target.dataset.id
         if (id) {
             this.completeBtn.classList.remove('active')
@@ -90,7 +96,7 @@ export function UiOrderPage() {
                 cost: cost,
                 quantity: quantity
             }
-            this._logic.setOrder(order)
+            this.setOrder(order)
             this.completeBtn.disabled = false
         }
     }

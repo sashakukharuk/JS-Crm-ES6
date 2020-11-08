@@ -1,55 +1,47 @@
 import {UtilRequest} from "../components/request/util";
 
-export function DataOrderPage() {
-    this._request = new UtilRequest()
-    this._Store = {
-        ordersData: [
-            // {_id: 'fdgdfg', name: 'Coffee', cost: 50, quantity: 1},
-            // {_id: 'ukukuku', name: 'Tea', cost: 20, quantity: 1},
-            // {_id: 'qwqwqwqw', name: 'Ice', cost: 10, quantity: 1},
-            // {_id: 'cxcxcxcx', name: 'Water', cost: 15, quantity: 1}
-        ],
-        orderData: [],
-        token: '',
-        instance: 'http://localhost:5000/api/'
+export class DataOrderPage {
+    constructor() {
+        this._request = new UtilRequest()
+        this.orders = []
     }
 
-    this.getOrders = async (id) => {
+    async requestGetOrders(id) {
         if (!id) {
             const str = window.location.href
             id = str.replace('http://localhost:8080/CRM.html?order?', '')
         }
-        if (this._Store.ordersData.length === 0) {
-            this._Store.ordersData = await this._request.start(`position/${id}`, 'GET')
-            return this._Store.ordersData
+        if (this.orders.length === 0) {
+            this.orders = await this._request.start(`position/${id}`, 'GET')
+            return this.orders
         } else {
-            return this._Store.ordersData
+            return this.orders
         }
     }
 
-    this.requestPostOrders = async (data) => {
+    async requestPostOrders(data) {
         await this._request.start(`order`, 'POST', JSON.stringify(data))
     }
 
-    this.getOrdersLocal = async () => {
-        const orders = await this.getOrders()
+    async getOrdersLocal() {
+        const orders = await this.requestGetOrders()
         const ordersLocal = orders.map(o => JSON.parse(localStorage.getItem(o._id)))
         return ordersLocal.filter(o => o ? o : '')
     }
 
-    this.setOrderAC = (order) => {
+    setOrderAC(order) {
         localStorage.setItem(order._id, JSON.stringify(order))
     }
 
-    this.deleteDataOrders = () => {
-        this._Store.ordersData = []
+    deleteDataOrders() {
+        this.orders = []
     }
 
-    this.deleteOrder = (order) => {
+    deleteOrderLocal(order) {
         localStorage.removeItem(order._id, JSON.stringify(order))
     }
 
-    this.deleteAllOrders = () => {
+    deleteAllOrders() {
         localStorage.clear()
     }
 }

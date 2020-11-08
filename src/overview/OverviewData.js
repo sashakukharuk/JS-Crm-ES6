@@ -1,9 +1,11 @@
 import {UtilRequest} from "../components/request/util";
 
-export function OverviewData() {
-    this._request = new UtilRequest()
+export class OverviewData {
+    constructor() {
+        this._request = new UtilRequest()
+    }
 
-    this.requestGetOverview = async () => {
+    async requestGetOverview() {
         return this._request.start('analytics/overview', 'GET')
     }
 }

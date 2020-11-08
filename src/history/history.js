@@ -4,13 +4,14 @@ import '../style/history.css'
 import {Compute} from "../components/computePrice/computePrice";
 import {Modal} from "../components/modal/modal";
 
-export function HistoryPage() {
-    // this._compute = new Compute()
-    this.orders = []
-    this._logic = new HistoryLogic()
-    this._filter = new Filter()
-    this._isFilter = false
-    this.start = () => {
+export class HistoryPage {
+    constructor() {
+        this.orders = []
+        this._isFilter = false
+        this.filter = {offset: 0, limit: 7, order: '', start: '', end: ''}
+    }
+
+    async start() {
         const that = this
         function _historyPage() {
             const history = document.createElement('div')
@@ -59,44 +60,48 @@ export function HistoryPage() {
 
         this.historyPage = _historyPage()
         this._isFilter = false
-        this.render = async (filter, STEP) => {
-            this.orders = await this._logic.getOrders(filter, STEP)
+        this.render = async (filter) => {
+            this._logic = new HistoryLogic(filter)
+            this.orders = await this._logic.getOrders()
             this.historyPage.querySelector('[data-content]').innerHTML = this.orders.map(order => this.toHTML(order)).join('')
-
-            this.loadBtn = document.getElementById('load')
-            this.openFilterBtn = document.getElementById('openFilter')
             this.listBtn = document.querySelectorAll('[data-id]')
-
-            this.loadBtn.addEventListener('click', this.listenerLoad)
-            this.listBtn.forEach(list => list.addEventListener('click', this.openModal))
-            this.openFilterBtn.addEventListener('click', this.openFilter)
+            this.listBtn.forEach(list => list.addEventListener('click', this.openModal.bind(this)))
         }
-        this.render()
+        this.loadBtn = document.getElementById('load')
+        this.openFilterBtn = document.getElementById('openFilter')
+        this.loadBtn.addEventListener('click', this.listenerLoad.bind(this))
+        this.openFilterBtn.addEventListener('click', this.openFilter.bind(this))
+
+
+        await this.render(this.filter)
     }
 
-    this.computePrice = (orders) => {
+    computePrice(orders) {
         this.compute = new Compute(orders)
         return this.compute.result()
     }
 
-    this.openFilter = () => {
+    async openFilter() {
         if (this._isFilter) {
             const parents = document.querySelector('.filter')
             parents.parentNode.removeChild(parents)
             this._isFilter = false
         } else {
-            const filterUrl = this._logic.showFilter()
-            this._filter.start(filterUrl, (filter) => this.render(filter))
+            this._filter = new Filter(this.filter, {render: (filter) => {
+                this.filter = filter
+                this.render(this.filter)
+                }})
+            this._filter.start()
             this._isFilter = true
         }
     }
 
-    this.listenerLoad = () => {
-        const STEP = 3
-        this.render(null, STEP)
+    async listenerLoad() {
+        this.filter.limit += 3
+        await this.render(this.filter)
     }
 
-    this.openModal = (e) => {
+    openModal(e) {
         const id = e.target.dataset.id
         const orders = this.orders.find(o => o._id === id)
         this._modal = new Modal('historyModal',{

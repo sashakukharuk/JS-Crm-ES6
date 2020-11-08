@@ -1,11 +1,14 @@
 import {CategoriesLogic} from "../categories/CategoriesLogic";
 import {UiOrderPage} from "./ui";
 import '../style/orderCategories.css'
-export function OrderCategories() {
-    this.isAddOrder = false
-    this._logic = new CategoriesLogic()
-    this._orderPage = new UiOrderPage()
-    this.start = () => {
+export class OrderCategories {
+    constructor() {
+        this.isAddOrder = false
+        this._logic = new CategoriesLogic()
+        this._orderPage = new UiOrderPage()
+    }
+
+    start() {
         const that = this
         function _createCategories() {
             const categories = document.createElement('div')
@@ -41,7 +44,7 @@ export function OrderCategories() {
             this.categoriesPage = _createCategories()
             if (this.isAddOrder) {
                 this.linkOrder = document.getElementById('linkOrder')
-                this.linkOrder.addEventListener('click', this.backOrder)
+                this.linkOrder.addEventListener('click', this.backOrder.bind(this))
             }
         }
         this.render()
@@ -51,20 +54,20 @@ export function OrderCategories() {
             this.pointCategory = document.querySelectorAll('[data-id]')
             this.completeBtn = document.getElementById('completeBtn')
             this.completeBtn.classList.add('active')
-            this.pointCategory.forEach(p => p.addEventListener('click', (e) => this.openCategory(e)))
+            this.pointCategory.forEach(p => p.addEventListener('click', this.openCategory.bind(this)))
         }
         this.rerender()
     }
 
 
-    this.removeChild = () => {
+    removeChild() {
         const parents = document.querySelector('.content')
         if (parents.firstChild) {
             parents.removeChild(parents.firstChild)
         }
     }
 
-    this.openCategory = (e) => {
+    openCategory(e) {
         const id = e.target.dataset.id
         if (id) {
             this.removeChild()
@@ -76,7 +79,7 @@ export function OrderCategories() {
         }
     }
 
-    this.backOrder = () => {
+    backOrder() {
         this.removeChild()
         window.history.pushState({}, 'name', `?order`)
         this.isAddOrder = false

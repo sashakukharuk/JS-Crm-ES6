@@ -2,9 +2,12 @@ import {CategoriesLogic} from "./CategoriesLogic";
 import '../style/position.css'
 import {ModalForm} from "../components/modal/modalForm";
 
-export function PositionPage() {
-    this._logic = new CategoriesLogic()
-    this.start = (id) => {
+export class PositionPage extends CategoriesLogic {
+    constructor() {
+        super()
+    }
+
+    start(id) {
         function _createPosition() {
             const position = document.createElement('div')
             position.classList.add('position')
@@ -39,20 +42,22 @@ export function PositionPage() {
 
         this.render = async () => {
             if (id) {
-                const position = await this._logic.getPositions(id)
+                const position = await this.getPositions(id)
                 this.positionPage.querySelector('[data-content-position]').innerHTML = position.map(this.toHTML).join('')
                 this.positionPage.querySelector('[data-content-position]').innerHTML = position.map(this.toHTML).join('')
+
                 this.addPosBtn = document.getElementById('addPosit')
                 this.deletePosBtn = document.querySelectorAll('.deletePosition')
+
                 this.addPosBtn.addEventListener('click', () => this.createPos(id))
-                this.deletePosBtn.forEach(d => d.addEventListener('click', this.deletePosition))
+                this.deletePosBtn.forEach(d => d.addEventListener('click', this.deletePosition.bind(this)))
                 this.positionPage.addEventListener('click', (e) => this.updatePos(e, id, position))
             }
         }
         this.render()
     }
 
-    this.openModal = (logicFunction, renderFunction, position, positionId, categoryId) => {
+    openModal(logicFunction, renderFunction, position, positionId, categoryId) {
         this._modal = new ModalForm(position, {
             post: (name, cost) => logicFunction(positionId, name, cost, categoryId),
             render: () => renderFunction()
@@ -60,29 +65,29 @@ export function PositionPage() {
         this._modal.start()
     }
 
-    this.createPos = (id) => {
-        this.openModal(this._logic.postPosition, this.render, null, null, id)
+    createPos(id) {
+        this.openModal(this.postPosition.bind(this), this.render, null, null, id)
     }
 
-    this.updatePos = (e, id, positions) => {
+    updatePos(e, id, positions) {
         const modal = e.target.dataset.modal
         if (modal) {
             const idPos = e.target.dataset.id
             const position = positions.find(p => p._id === idPos)
-            this.openModal(this._logic.patchPosition, this.render, position, position._id, null)
+            this.openModal(this.patchPosition.bind(this), this.render, position, position._id, null)
         }
     }
 
-    this.disabledBtnDelete = (id) => {
+    disabledBtnDelete(id) {
         const deletePosBtn = document.getElementById(`${id}`)
         deletePosBtn.classList.add('active')
         deletePosBtn.disabled = true
     }
 
-    this.deletePosition = async (e) => {
+    async deletePosition(e) {
         const id = e.target.dataset.id
         this.disabledBtnDelete(id)
-        await this._logic.removePosition(id)
+        await this.removePosition(id)
         this.render()
     }
 }

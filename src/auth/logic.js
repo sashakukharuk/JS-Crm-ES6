@@ -1,12 +1,14 @@
 import {DataAuth} from "./data";
 
-export function LogicAuth () {
-    this._data = new DataAuth()
-    this.postLogin = async (auth) => {
-        await this._data.requestPostLogin(auth)
+export class LogicAuth extends DataAuth {
+    constructor() {
+        super()
+    }
+    async postLogin(auth) {
+        await this.requestPostLogin(auth)
     }
 
-    this.postRegister = async (auth) => {
-        await this._data.requestPostRegister(auth)
+    async postRegister(auth) {
+        await this.requestPostRegister(auth)
     }
 }

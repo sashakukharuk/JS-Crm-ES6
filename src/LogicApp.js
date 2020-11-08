@@ -1,21 +1,23 @@
 import {DataApp} from "./DataApp";
 
-export function LogicApp() {
-    this._token = null
-    this._data = new DataApp()
+export class LogicApp extends DataApp {
+    constructor() {
+        super()
+        this._token = null
+    }
 
-    this.getToken = async () => {
+    getToken = async () => {
         if (!this._token) {
             this._token = JSON.parse(localStorage.getItem('token'))
         }
         if (!this._token) {
-            this._token = await this._data.requestGetToken()
+            this._token = await this.requestGetToken()
         }
         return this._token
     }
 
-     this.removeToken = () => {
-        this._data.requestRemoveToken()
+     removeToken = () => {
+        this.requestRemoveToken()
          localStorage.clear()
     }
 }
