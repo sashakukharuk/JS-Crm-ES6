@@ -20,36 +20,56 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08800ce8-044b-4f67-8270-21d670edc16d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/categories/CategoriesLogic.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/html/object-html.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/interface.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/preloader/preloader.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/history/HistoryLogic.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/style/preloader.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LogicApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/LogicApp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/analytics/AnalyticsData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/analytics/AnalyticsData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/analytics/AnalyticsLogic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/analytics/AnalyticsLogic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/analytics/analytics.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/analytics/analytics.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/auth/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/auth/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/data.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/auth/logic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/logic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/auth/login.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/auth/register.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/categories/CategoriesData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/categories/CategoriesData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/categories/CategoriesLogic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/categories/CategoriesLogic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/categories/categories.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/categories/categories.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/categories/category.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/categories/category.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/categories/position.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/categories/position.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modal/modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/modal.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/router/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/router/router.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/history/HistoryData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/history/HistoryData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/history/HistoryLogic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/history/HistoryLogic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/history/filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/history/filter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/history/history.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/history/history.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/order/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/order/data.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/order/logic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/order/logic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/order/orderCategories.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/order/orderCategories.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/order/ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/order/ui.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/overview/OverviewData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/overview/OverviewData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/overview/OverviewLogic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/overview/OverviewLogic.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/overview/overview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/overview/overview.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/overview.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/overview.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/CRM.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/js-crm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataApp.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LogicApp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/LogicApp.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/analytics/AnalyticsData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/analytics/AnalyticsData.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/analytics/AnalyticsLogic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/analytics/AnalyticsLogic.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/analytics/analytics.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/analytics/analytics.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auth/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auth/authForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/authForm.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auth/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/data.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auth/logic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/logic.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/categories/CategoriesData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/categories/CategoriesData.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/categories/CategoriesLogic.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/categories/categories.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/categories/categories.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/categories/category.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/categories/category.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/categories/position.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/categories/position.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/computePrice/computePrice.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/computePrice/computePrice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/inputControls/inputControls.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/inputControls/inputControls.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/inputControls/listener-validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/inputControls/listener-validation.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/inputControls/validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/inputControls/validation.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modal/modal.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/modal.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modal/modalForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/modalForm.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/request/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/request/util.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/router/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/router/router.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/history/HistoryData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/history/HistoryData.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/history/HistoryLogic.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/history/filter.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/history/filter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/history/history.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/history/history.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/order/data.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/order/data.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/order/logic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/order/logic.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/order/orderCategories.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/order/orderCategories.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/order/ui.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/order/ui.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/overview/OverviewData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/overview/OverviewData.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/overview/OverviewLogic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/overview/OverviewLogic.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/overview/overview.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/overview/overview.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/categories.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/categories.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +86,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/sashakukharuk/JS-Crm-ES6" />
+      </set>
+    </option>
+  </component>
   <component name="ProjectId" id="1jVdlupXx14l0mIlxK4dgsqJ7PZ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -75,7 +102,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/auth" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -85,20 +112,22 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="ts.external.directory.path" value="D:\999\IT\js\three-project\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\999\IT\react\project\tree-project\src\components\request" />
-      <recent name="D:\999\IT\react\project\tree-project\src\components\modal" />
-      <recent name="D:\999\IT\react\project\tree-project\dist" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\999\IT\react\project\tree-project\src\auth" />
       <recent name="D:\999\IT\react\project\tree-project\src\components\inputControls" />
       <recent name="D:\999\IT\react\project\tree-project\src\style" />
       <recent name="D:\999\IT\react\project\tree-project\src" />
       <recent name="D:\999\IT\react\project\tree-project" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\999\IT\js\three-project\src" />
+      <recent name="D:\999\IT\react\project\tree-project\src\components\request" />
+      <recent name="D:\999\IT\react\project\tree-project\src\components\modal" />
+      <recent name="D:\999\IT\react\project\tree-project\dist" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -129,7 +158,15 @@
       <workItem from="1604669777633" duration="21972000" />
       <workItem from="1604757943866" duration="18679000" />
       <workItem from="1604832049056" duration="341000" />
-      <workItem from="1604832718798" duration="12117000" />
+      <workItem from="1604832718798" duration="12484000" />
+      <workItem from="1604925647938" duration="2346000" />
+      <workItem from="1604951009245" duration="13347000" />
+      <workItem from="1604999979008" duration="17093000" />
+      <workItem from="1605107099187" duration="1493000" />
+      <workItem from="1607442267898" duration="21121000" />
+      <workItem from="1607514561143" duration="32417000" />
+      <workItem from="1607590186874" duration="9814000" />
+      <workItem from="1607616101781" duration="1712000" />
     </task>
     <servers />
   </component>
@@ -154,17 +191,25 @@
     </ignored-roots>
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1604583253135">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1607536548795">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1604583253135" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1607536548795" />
     <state x="594" y="220" key="SettingsEditor" timestamp="1603989337085">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="594" y="220" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1603989337085" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1604258234089">
+    <state x="1134" y="295" key="refactoring.ChangeSignatureDialog" timestamp="1607600770099">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1604258234089" />
+    <state x="1134" y="295" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607600770099" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1605021779139">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605021779139" />
+    <state x="1038" y="230" width="672" height="678" key="search.everywhere.popup" timestamp="1607449596474">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1038" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1607449596474" />
   </component>
 </project>

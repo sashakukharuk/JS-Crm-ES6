@@ -1,21 +1,40 @@
 const path = require('path');
+const HTMLWebpackPlugin = require('html-webpack-plugin')
+const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 
 module.exports = {
+    context: path.resolve(__dirname, 'src'),
     mode: 'development',
-    entry: ['@babel/polyfill', './src/index.js'],
+    entry: {
+        main: ['@babel/polyfill', './index.ts']
+    },
     output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: 'js/js-crm.js'
+        filename: '[name].[contenthash].js',
+        path: path.resolve(__dirname, 'dist')
     },
     devServer: {
-        contentBase: './dist',
+        contentBase: path.join(__dirname, './dist'),
     },
     devtool: 'inline-source-map',
+    plugins: [
+        new HTMLWebpackPlugin({
+            template: "./index.html"
+        }),
+        new CleanWebpackPlugin(),
+    ],
+    resolve: {
+        extensions: [ '.tsx', '.ts', '.js' ],
+    },
     module: {
         rules: [
             {
               test:/\.css$/,
               use: ['style-loader', 'css-loader']
+            },
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
             },
             {
                 test: /\.m?js$/,
