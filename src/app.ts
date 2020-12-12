@@ -8,7 +8,6 @@ export class App extends LogicApp {
     private pages: NodeListOf<Element>;
     constructor() {
         super()
-        this.app = null
         this.router = new Router()
     }
 
@@ -37,8 +36,12 @@ export class App extends LogicApp {
             return App
         }
         const token = await this.getToken()
-        !token ? window.history.pushState({}, 'name', "login") : this.app = _createAppPage()
-
+        if (!token) {
+            window.history.pushState({}, 'name', "/login")
+        } else {
+            window.history.pushState({}, 'name', "/")
+            this.app = _createAppPage()
+        }
         this.pages = document.querySelectorAll('[data-route]')
         this.pages.forEach(route => route.addEventListener('click', this.renderPage.bind(this)))
         this.router.myRouter()
@@ -48,11 +51,11 @@ export class App extends LogicApp {
         const route = e.target.dataset.route
         if (route) {
             window.history.pushState({}, 'name', `/${route}`)
+            if (route === 'login') {
+                this.removeToken()
+                this.app.parentNode.removeChild(this.app)
+            }
             this.router.myRouter()
-        }
-        if (route === 'login') {
-            this.removeToken()
-            this.app.parentNode.removeChild(this.app)
         }
     }
 }

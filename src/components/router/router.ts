@@ -71,7 +71,7 @@ export class Router {
 
     removeChild() {
         const parents = document.querySelector('.content')
-        if(parents) {
+        if (parents) {
             if (parents.firstChild) {
                 parents.removeChild(parents.firstChild)
             }
@@ -89,7 +89,9 @@ export class Router {
     unActivePage() {
         if (this.route) {
             const page = document.getElementById(this.route)
-            page.classList.remove('active')
+            if (page) {
+                page.classList.remove('active')
+            }
         }
     }
 }

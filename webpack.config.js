@@ -10,10 +10,16 @@ module.exports = {
     },
     output: {
         filename: '[name].[contenthash].js',
+        publicPath: '/',
         path: path.resolve(__dirname, 'dist')
     },
     devServer: {
         contentBase: path.join(__dirname, './dist'),
+        historyApiFallback: {
+            rewrites: [
+                { from: /^\/$/, to: '/index.html' },
+            ]
+        }
     },
     devtool: 'inline-source-map',
     plugins: [
@@ -32,7 +38,7 @@ module.exports = {
               use: ['style-loader', 'css-loader']
             },
             {
-                test: /\.tsx?$/,
+                test: /\.ts?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/,
             },

@@ -23,34 +23,41 @@ export class AnalyticsLogic extends AnalyticsData {
         return this.analytics
 
     }
+    async toHTML() {
+        await this.getAnalytics()
+        return `<p>Средний чек <strong>${this.analytics.average ? this.analytics.average : 0} $.</strong></p>`
+    }
+
     createChart() {
         const ctxGain: any = document.getElementById('gain')
         const ordersGain: any = document.getElementById('orders')
-        const gain: HTMLCanvasElement = ctxGain.getContext('2d')
-        const orders: HTMLCanvasElement = ordersGain.getContext('2d')
-        new Chart(gain, {
-            type: 'line',
-            data: {
-                labels: this.analytics.chart.map(item => item.label),
-                datasets: [{
-                    label: 'Gain',
-                    backgroundColor: 'rgb(255, 99, 132)',
-                    borderColor: 'rgb(255, 99, 132)',
-                    data: this.analytics.chart.map(item => item.gain),
-                }]
-            },
-        })
-        new Chart(orders, {
-            type: 'line',
-            data: {
-                labels: this.analytics.chart.map(item => item.label),
-                datasets: [{
-                    label: 'Orders',
-                    backgroundColor: 'rgb(255, 99, 132)',
-                    borderColor: 'rgb(255, 99, 132)',
-                    data: this.analytics.chart.map(item => item.order),
-                }]
-            },
-        })
+        if (ctxGain || ordersGain) {
+            const gain: HTMLCanvasElement = ctxGain.getContext('2d')
+            const orders: HTMLCanvasElement = ordersGain.getContext('2d')
+            new Chart(gain, {
+                type: 'line',
+                data: {
+                    labels: this.analytics.chart.map(item => item.label),
+                    datasets: [{
+                        label: 'Gain',
+                        backgroundColor: 'rgb(255, 99, 132)',
+                        borderColor: 'rgb(255, 99, 132)',
+                        data: this.analytics.chart.map(item => item.gain),
+                    }]
+                },
+            })
+            new Chart(orders, {
+                type: 'line',
+                data: {
+                    labels: this.analytics.chart.map(item => item.label),
+                    datasets: [{
+                        label: 'Orders',
+                        backgroundColor: 'rgb(255, 99, 132)',
+                        borderColor: 'rgb(255, 99, 132)',
+                        data: this.analytics.chart.map(item => item.order),
+                    }]
+                },
+            })
+        }
     }
 }
